@@ -6,7 +6,7 @@ type testState = {
     startDate: string,
     endDate: string,
     pageNumber: number,
-    results: []
+    results: any
 };
 
 class NytApp extends Component<{}, testState> {
@@ -47,6 +47,7 @@ class NytApp extends Component<{}, testState> {
 
         this.setState({pageNumber: 0});
         this.fetchResults();
+        
       };
 
     changePageNumber = (event: {}, direction: string): void => {
@@ -61,11 +62,13 @@ class NytApp extends Component<{}, testState> {
             this.setState({pageNumber: this.state.pageNumber + 1});
             this.fetchResults();
         };
+
+        // console.log("this.state.pageNumber", this.state.pageNumber);
       };
 
     componentDidMount() {
 
-        this.fetchResults();
+        // this.fetchResults();
 
       };
 
